@@ -492,7 +492,12 @@ class Mouth:
                 from backtalk import signals as _sig
                 _sig.direction(directions)
 
+            vol = float(CFG.get("volume", 1.0))
+
             def _write(pcm):
+                if vol != 1.0:
+                    pcm = np.clip(pcm.astype(np.float32) * vol,
+                                  -32768, 32767).astype(np.int16)
                 for i in range(0, len(pcm), block):
                     if self._stop.is_set():
                         return False

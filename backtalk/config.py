@@ -107,6 +107,12 @@ DEFAULTS = {
     # (roughly 0.7 to 1.5). ElevenLabs pace lives in the master chain's
     # atempo instead. (Grew out of a community proposal, issue #1.)
     "speed": 1.0,
+    # Playback volume for the agent's voice, applied to the audio itself
+    # before it reaches the speakers: 1.0 is full level, 0.5 is half.
+    # Sits under the Mac's own volume, so the voice can run quieter than
+    # everything else without touching the system slider. Takes effect
+    # at the next launch.
+    "volume": 1.0,
     # Resume the previous conversation on launch. OFF by default: a
     # fresh session every launch is the predictable behavior. Set true
     # and backtalk saves the session id after every completed turn
